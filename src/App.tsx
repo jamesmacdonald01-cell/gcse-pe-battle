@@ -1,4 +1,4 @@
-import {useMemo,useState} from 'react';
+import {useEffect,useMemo,useState} from 'react';
 import {Activity,ArrowLeft,ArrowRight,BatteryCharging,BookOpen,Brain,Check,CircleHelp,Crown,Dumbbell,Flame,HeartPulse,Home,LockKeyhole,Map,Maximize,RotateCcw,Shield,Smartphone,Sparkles,Target,Trophy,Zap} from 'lucide-react';
 import {athletes,cards,events,openQuestions,questions,synergies} from './data/content';
 import {sportOpenQuestions} from './data/sportOpenQuestions';
@@ -105,6 +105,17 @@ function App(){
  const [miniGameNode,setMiniGameNode]=useState<CareerNode|null>(null);
  const [rewardOptions,setRewardOptions]=useState<CoachBadge[]>([]);
  const [report,setReport]=useState<{win:boolean;score:number;ai:number;xp:number;accuracy:number;best:string;topic:string;careerNodeId:string|null}|null>(null);
+ useEffect(()=>{
+  const fitMobileStage=()=>{
+   const root=document.getElementById('root');
+   if(!root)return;
+   const active=mobileSetupComplete&&innerWidth>innerHeight&&innerHeight<650&&innerWidth<=1100;
+   document.body.classList.toggle('mobile-fit-stage',active);
+   if(active){const scale=Math.min(1,innerHeight/980);root.style.setProperty('--mobile-fit-scale',String(scale));root.style.width=`${innerWidth/scale}px`;root.style.height=`${innerHeight/scale}px`}
+   else{root.style.removeProperty('--mobile-fit-scale');root.style.removeProperty('width');root.style.removeProperty('height')}
+  };
+  fitMobileStage();window.addEventListener('resize',fitMobileStage);window.addEventListener('orientationchange',fitMobileStage);return()=>{window.removeEventListener('resize',fitMobileStage);window.removeEventListener('orientationchange',fitMobileStage);document.body.classList.remove('mobile-fit-stage')};
+ },[mobileSetupComplete,screen,battle?.phase]);
  const saveProfile=(p:Profile)=>{setProfile(p);persistence.save(p)};
  const prepareBattle=(nodeId:string|null=null)=>{setCareerBattleId(nodeId);setSelectedAthlete(null);setDraftIds([]);setDraftOfferIds([]);setDraftPickIds([]);setDraftSeenIds([]);setScreen('select')};
  const chooseAthlete=(athlete:Athlete)=>{const offer=draftOffer([],athlete,true);setSelectedAthlete(athlete);setDraftIds([]);setDraftOfferIds(offer);setDraftPickIds([]);setDraftSeenIds(offer);setScreen('loadout')};
