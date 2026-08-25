@@ -2,7 +2,7 @@ services:
   - type: web
     name: gcse-pe-battle
     runtime: static
-    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm run build
+    buildCommand: pnpm install --frozen-lockfile && pnpm run build
     staticPublishPath: ./dist
     pullRequestPreviewsEnabled: true
     routes:
