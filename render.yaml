@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gcse-pe-battle
+    runtime: static
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: true
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
