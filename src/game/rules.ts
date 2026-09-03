@@ -21,10 +21,10 @@ export const TUTORIAL_RULES={
 
 export const HOW_TO_PLAY_STEPS=[
  {number:'01',icon:'draft',title:'DRAFT',description:`Your opening ${GAME_RULES.draftOfferSize} contain a signature sport pair and three random cards. Choose ${GAME_RULES.draftPickSize}; later offers are random.`},
- {number:'02',icon:'energy',title:'BUILD',description:`Spend up to ${GAME_RULES.energyPerRound} Energy on cards from your hand.`},
+ {number:'02',icon:'energy',title:'BUILD',description:`Flip cards to read their revision notes, then choose Play This Card. Spend up to ${GAME_RULES.energyPerRound} Energy per round.`},
  {number:'03',icon:'combine',title:'COMBINE',description:'Link scientifically related cards to trigger a Performance bonus, then see the exact score and GCSE PE reason.'},
  {number:'04',icon:'respond',title:'RESPOND',description:'Make a coaching decision in a realistic situation from your chosen athlete’s sport.'},
- {number:'05',icon:'knowledge',title:'APPLY',description:'Answer GCSE PE questions written in the context of your chosen sport. A–D positions are shuffled each time, so read every option.'},
+ {number:'05',icon:'knowledge',title:'APPLY',description:'Answer questions from your sport and the wider GCSE PE syllabus. Read the explanation after answering. A–D positions are shuffled each time.'},
  {number:'06',icon:'compete',title:'COMPETE',description:`Finish ${GAME_RULES.rounds} rounds with the highest adjusted Performance Score.`},
  {number:'07',icon:'combine',title:'POWER UP',description:'In Road to Victory, mini-game detours award consumable cards. Activate each card only in its matching battle phase.'}
 ];

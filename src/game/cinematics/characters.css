@@ -1,0 +1,33 @@
+/* Joint coordinates use a fixed 200 × 300 canvas; the outer frame scales it. */
+.battle-character{position:absolute;width:200px;height:300px;transform-origin:50% 100%;filter:drop-shadow(0 0 14px var(--character-accent));pointer-events:none}
+.battle-character.opponent{scale:-1 1}
+.rig-root{position:absolute;inset:0;transform-origin:50% 90%}
+.rig-torso{position:absolute;left:69px;top:77px;width:62px;height:91px;border-radius:23px 23px 17px 17px;background:linear-gradient(110deg,var(--character-accent),#172b40 65%);border:2px solid var(--character-accent);transform-origin:50% 88%;box-shadow:inset 0 0 12px #fff3}
+.rig-head{position:absolute;left:8px;top:-61px;width:44px;height:55px;background:#b78a70;border:2px solid #edd0ac;border-radius:43% 43% 38% 38%;transform-origin:50% 100%;z-index:4;overflow:hidden}
+.rig-face{position:absolute;inset:0;overflow:hidden;border-radius:inherit}
+.rig-face img{width:120px;height:170px;max-width:none;position:absolute;left:50%;top:-19px;transform:translateX(-50%);object-fit:cover;object-position:center top}
+.rig-visor{position:absolute;left:2px;right:2px;top:22px;height:4px;background:var(--character-accent);opacity:.7;box-shadow:0 0 9px var(--character-accent)}
+.rig-arm{position:absolute;top:10px;width:21px;height:60px;border-radius:12px;background:linear-gradient(90deg,#21394a,var(--character-accent));transform-origin:50% 9px;z-index:3}
+.rig-arm.left{left:-16px;rotate:18deg}.rig-arm.right{right:-16px;rotate:-18deg}
+.rig-forearm{position:absolute;top:49px;left:1px;width:19px;height:53px;border-radius:10px;background:linear-gradient(90deg,#1a3045,#e4b692);transform-origin:50% 7px}
+.rig-hand{position:absolute;top:43px;left:-1px;width:21px;height:23px;border-radius:8px;background:#e4b692;transform-origin:50% 5px;border:2px solid #9f725f}
+.rig-joint{position:absolute;left:50%;top:3px;translate:-50% 0;width:13px;height:13px;border:2px solid var(--character-accent);border-radius:50%;background:#112131;box-shadow:0 0 7px var(--character-accent)}
+.rig-core{position:absolute;inset:19px 12px 15px;display:flex;flex-direction:column;gap:6px}.rig-core i{height:12px;background:#06172477;border-bottom:2px solid var(--character-accent);border-radius:3px}
+.rig-leg{position:absolute;top:76px;width:25px;height:66px;background:linear-gradient(90deg,#132336,#395267);border:1px solid var(--character-accent);border-radius:12px;transform-origin:50% 8px;z-index:-1}
+.rig-leg.left{left:0}.rig-leg.right{right:0}
+.rig-lower-leg{position:absolute;top:54px;left:1px;width:22px;height:64px;background:linear-gradient(90deg,#122237,#587181);border-radius:10px;transform-origin:50% 8px}
+.rig-foot{position:absolute;top:52px;left:-2px;width:38px;height:18px;background:var(--character-accent);border:2px solid #ecf7ff;border-radius:6px 12px 4px 4px;transform-origin:9px 7px}
+.rig-equipment{position:absolute;left:8px;top:5px;transform-origin:0 0;z-index:5}.racket-shaft{position:absolute;width:5px;height:50px;bottom:0;background:#e2edf4;border:1px solid #193142}
+.racket-head{position:absolute;width:42px;height:57px;left:-18px;bottom:47px;border:4px solid var(--character-accent);border-radius:50%;background:repeating-linear-gradient(0deg,transparent 0 6px,#efffff66 6px 7px),repeating-linear-gradient(90deg,transparent 0 6px,#efffff66 6px 7px);box-shadow:0 0 10px var(--character-accent)}
+.character-energy-shadow{position:absolute;left:5%;right:5%;bottom:0;height:25px;border-radius:50%;background:var(--character-accent);filter:blur(15px);opacity:.5}
+.anime-fighter>.battle-character,.anime-attack>.battle-character{left:50%;bottom:16%;translate:-50% 0;transform:scale(clamp(.6,1.1,1.2))}
+.finisher-actors{position:absolute;inset:13% 42% 14% 2%}
+.finisher-actors.opponent{inset:13% 2% 14% 42%}
+.finisher-actors .winning-character{left:15%;bottom:8%;z-index:3}
+.finisher-actors .defending-character{right:-12%;bottom:8%;opacity:.5;transform:scale(.8)}
+.finisher-actors.opponent .winning-character{left:auto;right:15%}.finisher-actors.opponent .defending-character{right:auto;left:-12%}
+.cinematic-shuttle,.cinematic-projectile{position:absolute;left:30%;top:30%;font-size:34px;color:white;text-shadow:0 0 20px var(--cyan);opacity:0;animation:animeShuttle 1s 3.65s both}
+.cinematic-projectile{animation-name:finishProjectile}.cinematic-shuttle.opponent,.cinematic-projectile.opponent{left:auto;right:30%;scale:-1 1}
+@media(min-height:800px) and (min-width:701px){.anime-fighter>.battle-character,.anime-attack>.battle-character{transform:scale(1.5)}.finisher-actors .winning-character{transform:scale(1.35)}}
+@media(max-width:700px){.anime-fighter>.battle-character,.anime-attack>.battle-character{transform:scale(.78);bottom:18%}.finisher-actors,.finisher-actors.opponent{inset:16% 4% 34%}.finisher-actors .winning-character{left:12%;transform:scale(.8)}.finisher-actors .defending-character{right:3%;transform:scale(.65)}.finisher-actors.opponent .winning-character{right:12%}.finisher-actors.opponent .defending-character{left:3%}}
+@media(max-height:500px){.anime-fighter>.battle-character,.anime-attack>.battle-character{transform:scale(.65);bottom:4%}.finisher-actors .winning-character{transform:scale(.68)}.finisher-actors .defending-character{transform:scale(.55)}}

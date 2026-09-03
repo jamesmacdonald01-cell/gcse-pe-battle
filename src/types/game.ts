@@ -3,7 +3,7 @@ export interface Athlete {id:string;name:string;sport:string;role:string;accent:
 export interface Card {id:string;name:string;type:CardType;cost:number;tags:string[];effect:string;performance:number;stat?:'confidence'|'fatigue'|'injuryRisk';delta?:number}
 export interface Stats {performance:number;energy:number;confidence:number;fatigue:number;injuryRisk:number}
 export interface SynergyRule {id:string;name:string;requiredTags:string[];athleteTags?:string[];performanceBonus:number;explanation:string}
-export interface Question {id:string;paper:1|2;topic:string;subtopic:string;ao:'AO1'|'AO2'|'AO3';difficulty:1|2|3;question:string;options:string[];correctAnswer:string;explanation:string;sportTags?:string[]}
+export interface Question {id:string;paper:1|2;topic:string;subtopic:string;ao:'AO1'|'AO2'|'AO3';difficulty:1|2|3;question:string;options:string[];correctAnswer:string;explanation:string;sportTags?:string[];commandWord?:'Identify'|'State'|'Describe'|'Explain'|'Analyse'|'Evaluate'|'Justify';marks?:number;misconception?:string;takeaway?:string}
 export interface MarkPoint {id:string;label:string;alternatives:string[];weight:number}
 export interface Misconception {label:string;alternatives:string[];penalty:number}
 export interface OpenQuestion {id:string;paper:1|2;topic:string;subtopic:string;ao:'AO1'|'AO2'|'AO3';difficulty:1|2|3;scenario:string;prompt:string;markPoints:MarkPoint[];misconceptions?:Misconception[];modelAnswer:string;explanation:string;sportTags?:string[]}
